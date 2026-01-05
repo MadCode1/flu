@@ -1,0 +1,354 @@
+// ==========================================================
+// #################### PROGRAM 1 ###########################
+// Hello World & Hello Flutter
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    body: Center(child: Text("Hello World\nHello Flutter")),
+  ),
+));
+*/
+
+// ==========================================================
+// #################### PROGRAM 2 ###########################
+// Counter App (Increment & Decrement)
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext c) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Counter")),
+        body: Center(child: Text('$count', style: TextStyle(fontSize: 40))),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: ()=>setState(()=>count++),
+              child: Icon(Icons.add)),
+            SizedBox(width: 10),
+            FloatingActionButton(
+              onPressed: ()=>setState(()=>count--),
+              child: Icon(Icons.remove)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 3 ###########################
+// Login Screen
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    body: Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(decoration: InputDecoration(labelText: "Username")),
+          TextField(decoration: InputDecoration(labelText: "Password")),
+          ElevatedButton(onPressed: (){}, child: Text("Login"))
+        ],
+      ),
+    ),
+  ),
+));
+*/
+
+// ==========================================================
+// #################### PROGRAM 4 ###########################
+// To-Do List App
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<String> tasks = [];
+  TextEditingController c = TextEditingController();
+
+  @override
+  Widget build(BuildContext ctx) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("To-Do")),
+        body: Column(
+          children: [
+            TextField(controller: c),
+            ElevatedButton(
+              onPressed: (){
+                setState(() {
+                  tasks.add(c.text);
+                  c.clear();
+                });
+              },
+              child: Text("Add"),
+            ),
+            Expanded(
+              child: ListView(
+                children: tasks
+                    .map((e) => ListTile(title: Text(e)))
+                    .toList(),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 5 ###########################
+// Calculator App (Basic Add)
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int a = 5, b = 3, result = 0;
+
+  @override
+  Widget build(BuildContext c) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Result: $result", style: TextStyle(fontSize: 25)),
+            ElevatedButton(
+              onPressed: ()=>setState(()=>result = a + b),
+              child: Text("Add"))
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 6 ###########################
+// Weather App (Static)
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    body: Center(
+      child: Text(
+        "Country: India\nTemperature: 30°C",
+        style: TextStyle(fontSize: 25),
+      ),
+    ),
+  ),
+));
+*/
+
+// ==========================================================
+// #################### PROGRAM 7 ###########################
+// Stopwatch App
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int sec = 0;
+  Timer? t;
+
+  @override
+  Widget build(BuildContext c) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("$sec seconds", style: TextStyle(fontSize: 30)),
+            ElevatedButton(
+              onPressed: (){
+                t = Timer.periodic(
+                  Duration(seconds: 1),
+                  (_) => setState(()=>sec++));
+              },
+              child: Text("Start")),
+            ElevatedButton(
+              onPressed: ()=>t?.cancel(),
+              child: Text("Stop"))
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 8 ###########################
+// Navigation Between Screens
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: Screen1()));
+
+class Screen1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          child: Text("Go to Screen 2"),
+          onPressed: (){
+            Navigator.push(
+              c,
+              MaterialPageRoute(builder: (_) => Screen2()),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      body: Center(child: Text("Second Screen")),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 10 ##########################
+// Animated Logo
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double size = 100;
+
+  @override
+  Widget build(BuildContext c) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: GestureDetector(
+            onTap: ()=>setState(()=>size = 200),
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1),
+              width: size,
+              height: size,
+              child: FlutterLogo(),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+
+// ==========================================================
+// #################### PROGRAM 11 ##########################
+// Daily Expense Tracker (Simple)
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    body: Center(
+      child: Text(
+        "Food : ₹200\nTravel : ₹100\nOther : ₹50",
+        style: TextStyle(fontSize: 25),
+      ),
+    ),
+  ),
+));
+*/
+
+// ==========================================================
+// #################### PROGRAM 12 ##########################
+// Quiz App with Score
+// ==========================================================
+/*
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int score = 0;
+
+  @override
+  Widget build(BuildContext c) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("2 + 2 = ?", style: TextStyle(fontSize: 25)),
+            ElevatedButton(
+              onPressed: ()=>setState(()=>score = 1),
+              child: Text("4")),
+            Text("Score: $score", style: TextStyle(fontSize: 20))
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
